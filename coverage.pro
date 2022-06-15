@@ -18,11 +18,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
-    myscene.cpp
+    myscene.cpp \
+    rectangle.cpp
 
 HEADERS += \
     mainwindow.h \
-    myscene.h
+    myscene.h \
+    rectangle.h
 
 FORMS += \
     mainwindow.ui

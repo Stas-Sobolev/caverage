@@ -6,7 +6,7 @@
 #include<memory>
 #include<vector>
 #include <QMouseEvent>
-
+#include"rectangle.h"
 
 class mySceneView : public QGraphicsView
 {
@@ -14,16 +14,17 @@ public:
     mySceneView(QGraphicsScene* scene);
     ~mySceneView();
 
-    const std::vector<std::shared_ptr<QGraphicsRectItem>>& get_rectangles() const;
-    void add_rectangle(const std::shared_ptr<QGraphicsRectItem>& rect);
+    const std::vector<std::shared_ptr<Rectangle>>& get_rectangles() const;
+    void add_rectangle();
 
-    void mousePressEvent(QMouseEvent *event) override;
-    void mouseMoveEvent(QMouseEvent *event) override;
+    Rectangle* get_parent_of_rectangle()const;
+    //void mousePressEvent(QMouseEvent *event) override;
+    //void mouseMoveEvent(QMouseEvent *event) override;
 
 private:
-    std::vector<std::shared_ptr<QGraphicsRectItem>> rectangles;
-    std::shared_ptr<QGraphicsRectItem> parent_of_rectangles;
-    std::shared_ptr<QGraphicsRectItem> captured_rect;
+    std::vector<std::shared_ptr<Rectangle>> rectangles;
+    std::shared_ptr<Rectangle> parent_of_rectangles;
+    std::shared_ptr<Rectangle> captured_rect;
 };
 
 #endif // MYSCENE_H
